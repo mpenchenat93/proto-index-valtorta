@@ -1,0 +1,48 @@
+<div class="upload">
+  <input
+    #hiddenFileInput
+    (change)="onFileChange($event)"
+    class="form-control hidden"
+    type="file"
+    multiple
+    accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+  />
+
+  <div>
+    <button class="browse button black" (click)="onBtnClick()">
+      {{ "ADMIN.BTN" | translate }}
+    </button>
+  </div>
+  <div style="margin-top: 5px">
+    <div
+      *ngIf="fileNames.length"
+      class="input-label-tt"
+      style="padding: 15px 25px; width: fit-content"
+    >
+      <div *ngFor="let fileName of fileNames" style="margin: 10px 0">
+        <span>{{ fileName.json }}</span>
+        <span style="padding-left: 10px">
+          <a id="{{ fileName.id }}">{{ "ADMIN.DOWNLOAD" | translate }}</a>
+        </span>
+      </div>
+    </div>
+    <div
+      class="input-label-tt"
+      style="
+        padding: 10px;
+        width: 207px;
+        border-radius: 5px;
+        text-align: center;
+      "
+      *ngIf="!fileNames.length"
+    >
+      {{ "ADMIN.NOFILE" | translate }}
+    </div>
+  </div>
+  <div
+    class="browse"
+    style="font-style: italic; padding-left: 10px; margin-top: 20px"
+  >
+    <strong>{{ "ADMIN.FORMAT" | translate }} :</strong> xlsx.
+  </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="defensive-code" style="padding-left: 30px; padding-right: 30px">
+  <div *ngIf="hierarchyError.name !== 'merge'">
+    <div class="desktop">
+      <table class="table table-striped table-sm">
+        <thead>
+          <tr>
+            <th>{{ "DEF.FILENAME" | translate }}</th>
+            <th>{{ "DEF.COMMENT" | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 20px">
+              <span *ngIf="hierarchyError.name === 'keywords'">
+                keywords.xxx.json
+              </span>
+              <span *ngIf="hierarchyError.name === 'themes'">
+                themes.xxx.json
+              </span>
+            </td>
+            <td>
+              <p style="color: #dc3545">{{ error }}</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mobile">
+      <div *ngIf="hierarchyError.name === 'keywords'">
+        <p>{{ "DEF.FILE" | translate }} : <b>keywords.xxx.json</b></p>
+        <p style="color: #dc3545; padding-bottom: 10px">
+          {{ error }}
+        </p>
+        <hr />
+      </div>
+      <div *ngIf="hierarchyError.name === 'themes'">
+        <p>{{ "DEF.FILE" | translate }} : <b>themes.xxx.json</b></p>
+        <p style="color: #dc3545; padding-bottom: 10px">
+          {{ error }}
+        </p>
+        <hr />
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="hierarchyError.name === 'merge'">
+    <div *ngIf="hierarchyError.error.avecEnfants.length">
+      <p>
+        <u>{{ "MERGE:1" | translate }}</u
+        ><br />
+        {{ hierarchyError.error.avecEnfants.join(", ") }}.
+      </p>
+    </div>
+    <div *ngIf="hierarchyError.error.inexistants.length">
+      <p>
+        <u>{{ "MERGE:2" | translate }}</u
+        ><br />
+        {{ hierarchyError.error.inexistants.join(", ") }}.
+      </p>
+    </div>
+  </div>
+</div>

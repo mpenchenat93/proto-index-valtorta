@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+
+// Couleurs
+$color-primary: #007bff;
+$color-secondary: #6c757d;
+$color-success: #28a745;
+$color-info: #17a2b8;
+$color-warning: #ffc107;
+$color-danger: #dc3545;
+$color-light: #f8f9fa;
+$color-dark: #343a40;
+$color-white: #ffffff;
+$color-black: #000000;
+
+$color-grey: grey;
+$color-light-grey: #f0f0f0;
+$color-dark-grey: #ddd;
+
+$color-green: #4CAF50;
+$color-light-green: #5cb85c;
+$color-dark-green: #397d35;
+
+$color-blue: #007bff;
+$color-light-blue: #66afe9;
+
+$color-text: #333;
+$color-secondary-text: #666;
+
+// Couleurs spécifiques à l'application
+$background-body: #F5F5F5; //$color-light-grey;
+$background-container: $color-white;
+$background-form: #f9f9f9;
+$background-list-item: #f9f9f9;
+$background-list-item-hover: #f0f0f0;
+$background-badge: $color-grey;
+$background-btn-grey: $color-grey;
+$button-hover: #45a049; // Pour le bouton standard (hover)
+$background-pagination-hover: $color-dark-grey; // Pour la pagination (hover)
+
+// Tailles de police
+$font-size-base: 1rem; // 16px
+$font-size-sm: 0.875rem; // 14px
+$font-size-lg: 1.25rem; // 20px
+$font-size-xl: 1.5rem; // 24px
+$font-size-xxl: 2rem; // 32px
+
+// Hauteurs de ligne
+$line-height-base: 1.5;
+$line-height-sm: 1.4;
+$line-height-lg: 1.6;
+
+// Familles de polices
+$font-family-sans-serif: 'Roboto',
+'Helvetica Neue',
+Helvetica,
+Arial,
+sans-serif;
+$font-family-serif: 'Times New Roman',
+Times,
+serif;
+$font-family-monospace: 'Courier New',
+Courier,
+monospace;
+
+// Espacements (marges et paddings)
+$spacing-1: 0.25rem; // 4px
+$spacing-2: 0.5rem; // 8px
+$spacing-3: 1rem; // 16px
+$spacing-4: 1.5rem; // 24px
+$spacing-5: 2rem; // 32px
+
+// Bordures
+$border-color: $color-dark-grey;
+$border-color-active: $color-green;
+$border-color-focus: $color-light-blue;
+$border-width: 1px;
+$border-radius: 0.25rem;
+
+// Autres variables (exemples)
+$transition-duration: 0.3s;
+
+// Ombres
+$box-shadow-light: rgba(0, 0, 0, 0.1);
+$box-shadow-dark: rgba(0, 0, 0, 0.15);
+$box-shadow-inset: inset 0 3px 5px rgba(0, 0, 0, 0.2);

@@ -1,0 +1,36 @@
+<app-header></app-header>
+
+<div class="card card-sm">
+  <div class="breadcrumb">
+    <a routerLink="/home" type="button">{{ "NAV.HOME" | translate }}</a> /
+    {{ "NAV.CHART" | translate }}
+  </div>
+</div>
+<div class="card card-orange">
+  <h2>{{ "CHART.TITLE" | translate }}</h2>
+
+  <p>
+    <b>{{ "CHART.H1" | translate }}</b>
+  </p>
+  <p>
+    {{ "CHART.TEXT1" | translate }}
+  </p>
+
+  <br />
+  <div *ngIf="!isValtorta">
+    <p>
+      <b>{{ "CHART.H2" | translate }}</b>
+    </p>
+    <p>
+      {{ "CHART.TEXT2" | translate }}
+    </p>
+  </div>
+
+  <h2>{{ "CHART.TITLE2" | translate }}</h2>
+
+  <p [innerHTML]="'CHART.TEXT3' | translate"></p>
+  <p [innerHTML]="'CHART.TEXT4' | translate"></p>
+  <p [innerHTML]="'CHART.TEXT5' | translate"></p>
+  <p [innerHTML]="'CHART.TEXT6' | translate"></p>
+  <p [innerHTML]="'CHART.TEXT7' | translate"></p>
+</div>

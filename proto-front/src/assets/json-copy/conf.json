@@ -1,0 +1,44 @@
+[
+  {
+    "NOM": "HP",
+    "NOM COMPLET": "Harry Potter",
+    "AUTEUR": "J. K. Rowling",
+    "ID": "harry-potter",
+    "EST PARENT": "Oui",
+    "LABEL REFERENCE": "Page",
+    "LABEL REFERENCE ABR": "p.",
+    "EDITION": "Gallimard Jeunesse",
+    "TOMES": [
+      { "Nom": "À l’école des sorciers", "ID": "sorcier.fbxa3hk8x.json" },
+      { "Nom": "La Chambre des secrets", "ID": "secret.eqiwsapay.json" },
+      { "Nom": "Le Prisonnier d'Azkaban", "ID": "azkaban.9qbhy4d8z.json" }
+    ]
+  },
+  {
+    "NOM": "EMV",
+    "NOM COMPLET": "L'Evangile tel qu'il m'a été révélé",
+    "AUTEUR": "Maria Valtorta",
+    "ID": "emv",
+    "EST PARENT": "Oui",
+    "LABEL REFERENCE": "Chapitre",
+    "LABEL REFERENCE ABR": "Chap.",
+    "EDITION": "Edition Centro Editoriale Valtortiano, 2ème édition",
+    "TOMES": [
+      { "Nom": "Tome 1", "ID": "emv1.3u1i5noqk.json" },
+      { "Nom": "Tome 7", "ID": "emv7.olt1zuuci.json" },
+      { "Nom": "Tome 8", "ID": "emv8.o0hpvs1k4.json" },
+      { "Nom": "Tome 9", "ID": "emv9.x893ktdlg.json" },
+      { "Nom": "Tome 10", "ID": "emv10.i6wtnqebx.json" }
+    ]
+  },
+  {
+    "NOM": "LPP",
+    "NOM COMPLET": "Le Petit Prince",
+    "AUTEUR": "Antoine de Saint-Exupéry",
+    "ID": "le-petit-prince.oncqjp7gm.json",
+    "EST PARENT": "Non",
+    "LABEL REFERENCE": "",
+    "LABEL REFERENCE ABR": "",
+    "EDITION": "Gallimard"
+  }
+]

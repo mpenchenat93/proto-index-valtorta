@@ -1,0 +1,37 @@
+<div class="pagination">
+  <span
+    class="page-item"
+    [class.disabled]="page === 1"
+    (click)="navigateToPage(1)"
+  >
+    <a class="page-link">&laquo;&laquo;</a>
+  </span>
+  <span
+    class="page-item"
+    [class.disabled]="page === 1"
+    (click)="navigateToPage(page - 1)"
+  >
+    <a class="page-link">&laquo;</a>
+  </span>
+  <span
+    class="page-item"
+    *ngFor="let pageNum of displayedPages"
+    (click)="navigateToPage(pageNum)"
+  >
+    <a [class.active]="page === pageNum" class="page-link">{{ pageNum }}</a>
+  </span>
+  <span
+    class="page-item"
+    [class.disabled]="page === totalPages"
+    (click)="navigateToPage(page + 1)"
+  >
+    <a class="page-link">&raquo;</a>
+  </span>
+  <span
+    class="page-item"
+    [class.disabled]="page === totalPages"
+    (click)="navigateToPage(totalPages)"
+  >
+    <a class="page-link">&raquo;&raquo;</a>
+  </span>
+</div>

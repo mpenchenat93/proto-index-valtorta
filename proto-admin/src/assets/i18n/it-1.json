@@ -1,0 +1,19 @@
+{
+  "HEADER.TITLE": "Quaderno di Note",
+  "ADMIN.TITLE": "Amministrazione del sito",
+  "ADMIN.CONVERT": "Converti i tuoi file Excel",
+  "KEYWORDS": "Parole chiave",
+  "ADMIN.LABEL-BTN2": "Identificare le parole chiave aggiunte e rimosse rispetto a un precedente esportazione di parole chiave, ed esportare queste differenze.",
+  "ADMIN.OLD-EXPORT": "Vecchia esportazione",
+  "ADMIN.SELECT-FILE": "Seleziona un file",
+  "ADMIN.NOFILE": "Nessun file selezionato",
+  "ADMIN.NEW-EXPORT": "Nuova esportazione",
+  "FORM.EXPORT": "Esportare",
+  "ADMIN.LABEL3": "diff_parole_chiave",
+  "ADMIN.LABEL4": "Parole chiave aggiunte",
+  "ADMIN.LABEL5": "Parole chiave rimosse",
+  "FOOTER.COPYRIGHT": "Tutti i diritti riservati",
+  "ADMIN.BTN": "Seleziona i tuoi file",
+  "ADMIN.DOWNLOAD": "Scaricare",
+  "ADMIN.FORMAT": "Formato supportato"
+}

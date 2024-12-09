@@ -1,0 +1,97 @@
+<div class="site-header" style="position: relative">
+  <h1>{{ "HEADER.TITLE" | translate }}</h1>
+</div>
+
+<div class="card card-orange">
+  <h2>{{ "ADMIN.TITLE" | translate }}</h2>
+  <br />
+
+  <h4 style="padding: 15px">{{ "ADMIN.CONVERT" | translate }}</h4>
+
+  <div style="padding-left: 15px">
+    <xlsx-to-json-converter></xlsx-to-json-converter>
+  </div>
+
+  <br />
+  <h4 style="padding: 15px">{{ "KEYWORDS" | translate }}</h4>
+  <div style="padding-left: 15px">
+    <div>
+      <input
+        #hiddenFileInput2
+        (change)="onKeywordsFileChangeOld($event)"
+        class="form-control hidden"
+        type="file"
+        accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      />
+
+      <input
+        #hiddenFileInput3
+        (change)="onKeywordsFileChangeActual($event)"
+        class="form-control hidden"
+        type="file"
+        accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      />
+
+      <p>
+        {{ "ADMIN.LABEL-BTN2" | translate }}
+      </p>
+
+      <div class="keyword-diff">
+        <div
+          style="
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-top: 10px;
+          "
+        >
+          <p style="font-weight: bold">{{ "ADMIN.OLD-EXPORT" | translate }}</p>
+          <button (click)="onBtnClickOld()">
+            {{ "ADMIN.SELECT-FILE" | translate }}
+          </button>
+          <div>
+            <div
+              class="input-label-tt"
+              style="padding: 10px; border-radius: 5px; text-align: center"
+            >
+              {{ oldFileName || ("ADMIN.NOFILE" | translate) }}
+            </div>
+          </div>
+        </div>
+
+        <div
+          style="
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-top: 10px;
+          "
+        >
+          <p style="font-weight: bold">{{ "ADMIN.NEW-EXPORT" | translate }}</p>
+          <button (click)="onBtnClickActual()">
+            {{ "ADMIN.SELECT-FILE" | translate }}
+          </button>
+          <div>
+            <div
+              class="input-label-tt"
+              style="padding: 10px; border-radius: 5px; text-align: center"
+            >
+              {{ newFileName || ("ADMIN.NOFILE" | translate) }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: right; margin-top: 15px">
+        <button
+          [class.disabled]="!oldKeywords.length || !actualKeywords.length"
+          (click)="downloadDiffExport()"
+        >
+          {{ "FORM.EXPORT" | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

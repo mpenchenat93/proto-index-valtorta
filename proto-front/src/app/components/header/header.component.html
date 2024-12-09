@@ -1,0 +1,10 @@
+<div class="site-header" style="position: relative">
+  <h1>{{ titleGen || ("HEADER.TITLE" | translate) }}</h1>
+  <div *ngIf="!hideLinks" class="subtitle">
+    <a routerLink="/info" type="button">
+      {{ "HEADER.INFOS" | translate }}
+    </a>
+    <div class="slash">|</div>
+    <a routerLink="/contact" type="button">{{ "CONTACT" | translate }}</a>
+  </div>
+</div>

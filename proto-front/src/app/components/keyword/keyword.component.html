@@ -1,0 +1,149 @@
+<div style="padding: 10px; border: solid 1px #ddd; border-radius: 5px">
+  <div
+    style="
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin: 5px 0;
+    "
+  >
+    <h6>
+      {{ "KEYWORDS" | translate }}
+      <span *ngIf="!isMobile && isJobDone"
+        >({{ nbKeywords | formatNumber }})</span
+      >
+    </h6>
+    <div style="display: flex; gap: 5px">
+      <div class="row-ormode">
+        <label>
+          <input
+            type="radio"
+            name="orMode"
+            value="inclusive"
+            (change)="onOrModeRadioChange()"
+            [(ngModel)]="orMode"
+          />
+          {{ "FORM.INCLUSIF" | translate }}
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="orMode"
+            value="exclusive"
+            (change)="onOrModeRadioChange()"
+            [(ngModel)]="orMode"
+          />
+          {{ "FORM.EXCLUSIF" | translate }}
+        </label>
+      </div>
+      <div
+        *ngIf="!isMobile"
+        style="border: solid 1px #ddd; padding: 5px 10px; border-radius: 5px"
+      >
+        <label>
+          <input
+            type="radio"
+            name="category"
+            value="simple"
+            [(ngModel)]="keywordForm"
+          />
+          {{ "FORM.SIMPLE" | translate }}
+        </label>
+
+        <label>
+          <input
+            type="radio"
+            name="category"
+            value="abecd"
+            [(ngModel)]="keywordForm"
+          />
+          {{ "FORM.ABECEDARIUM" | translate }}
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <app-abecedarium
+    *ngIf="keywordForm === 'abecd'"
+    [keywords]="keywords"
+    [isOr]="orMode === 'inclusive'"
+    [selectedThemeKeywords]="selectedThemeKeywords"
+    [resetSearchKeyword]="resetSearchKeyword"
+    [(selectedKeywords)]="selectedKeywords"
+  ></app-abecedarium>
+
+  <div *ngIf="keywordForm === 'simple'">
+    <!-- MOBILE -->
+    <multi-select-mobile
+      *ngIf="isMobile"
+      [keywords]="keywords"
+      [isOr]="orMode === 'inclusive'"
+      [resetSearchKeyword]="resetSearchKeyword"
+      [(selectedKeywords)]="selectedKeywords"
+    ></multi-select-mobile>
+
+    <!-- DESKTOP -->
+    <div
+      *ngIf="!isMobile"
+      #mySelect
+      style="display: flex; align-items: center; gap: 5px"
+    >
+      <div style="flex: 1">
+        <ng-select
+          name="multi-select"
+          [inputAttrs]="{ name: 'multi-select' }"
+          [items]="filteredKeywords"
+          [multiple]="true"
+          [clearSearchOnAdd]="orMode !== 'inclusive'"
+          bindLabel="value"
+          bindValue="value"
+          [selectableGroup]="false"
+          [closeOnSelect]="false"
+          placeholder="{{ 'KEYWORDS' | translate }}"
+          notFoundText="{{ 'NO_RESULTS' | translate }}"
+          clearAllText="{{ 'FORM.DELETE_SELECTION' | translate }}"
+          [(ngModel)]="selectedKeywords"
+          [typeahead]="input$"
+          (search)="onSearch($event)"
+          (change)="onDropDownChange()"
+          (close)="onDropDownClose()"
+        >
+          <ng-template
+            ng-optgroup-tmp
+            let-item="item"
+            let-item$="item$"
+            let-index="index"
+          >
+            <input
+              id="item-{{ index }}"
+              type="checkbox"
+              [ngModel]="item$.selected"
+            />
+            {{ item.value | uppercase }}
+          </ng-template>
+          <ng-template
+            ng-option-tmp
+            let-item="item"
+            let-item$="item$"
+            let-index="index"
+          >
+            <input
+              id="item-{{ index }}"
+              type="checkbox"
+              [ngModel]="item$.selected"
+            />
+            {{ item.value }}
+          </ng-template>
+        </ng-select>
+      </div>
+      <app-help-button [(active)]="isActiveInfoBtn"></app-help-button>
+    </div>
+    <div
+      *ngIf="isActiveInfoBtn"
+      class="card card-blue card-sm"
+      style="margin-top: 10px; width: fit-content; line-height: 1.2"
+    >
+      {{ "FORM.INFO" | translate }}
+    </div>
+  </div>
+</div>

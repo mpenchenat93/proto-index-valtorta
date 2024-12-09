@@ -1,0 +1,50 @@
+ ul.reference {
+     list-style: none;
+     padding: 0;
+     margin: 0;
+ }
+
+ ul.reference li {
+     background-color: #eeeeee; // #e2e3e5; //#dfe8f0;
+     margin-bottom: 15px;
+     padding: 20px;
+     border-radius: 5px;
+     border: solid 1px #b5b5b6; //878e94
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+     transition: all 0.3s ease;
+ }
+
+ ul.reference li strong {
+     display: block;
+     color: #333;
+     margin-bottom: 20px;
+     font-size: 20px;
+     font-weight: bold;
+ }
+
+ ul.reference li u {
+     color: #333; // color: #007bff;
+     margin-bottom: 5px;
+     display: inline;
+ }
+
+ /* Style pour la description et la citation */
+ ul.reference li p {
+     color: #333333;
+     line-height: 1.4;
+     font-size: 18px;
+     margin-top: 5px;
+
+     b {
+         font-weight: bold;
+     }
+
+     i {
+         font-style: italic;
+     }
+ }
+
+ /* Ajoute un peu d'espace avant la citation pour la séparer visuellement */
+ ul.reference li p:first-of-type {
+     margin-top: 10px;
+ }

@@ -1,0 +1,92 @@
+button.p-ripple {
+  background-color: transparent;
+  color: #000000;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  margin-right: 7px !important;
+}
+
+button.p-ripple:active {
+  box-shadow: none;
+}
+
+li.p-treenode {
+  list-style-type: none;
+  line-height: 1.6;
+  padding-bottom: 0;
+}
+
+ul.p-treenode-children {
+  padding: 0 0 0 1rem;
+}
+
+ul.p-tree-container {
+  padding: 0;
+}
+
+.p-tree .p-tree-container .p-treenode .p-treenode-content {
+  border-radius: 6px;
+  transition: box-shadow 0.2s;
+  padding: 0.1rem;
+  font-size: 16px;
+}
+
+.p-checkbox .p-checkbox-box {
+  border: 2px solid #bec1c7;
+  background: #ffffff;
+  width: 22px;
+  height: 22px;
+  color: #4b5563;
+  border-radius: 6px;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box.p-highlight:hover {
+  border-color: #1D4ED8;
+  background: #1D4ED8;
+  color: #ffffff;
+}
+
+.p-checkbox .p-checkbox-box.p-highlight {
+  border-color: #3B82F6;
+  background: #3B82F6;
+}
+
+.p-tree .p-tree-container .p-treenode .p-treenode-content .p-tree-toggler {
+  margin-right: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  color: #6b7280;
+  border: 0 none;
+  background: transparent;
+  border-radius: 50%;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.p-tree .p-tree-container .p-treenode .p-treenode-content .p-tree-toggler:enabled:hover {
+  color: #374151;
+  border-color: transparent;
+  background: #f3f4f6;
+}
+
+.p-tree .p-tree-container .p-treenode .p-treenode-content .p-checkbox {
+  margin-right: 0.5rem;
+}
+
+.p-treenode-label {
+  color: #333
+}
+
+.p-tree .p-tree-container .p-treenode:focus>.p-treenode-content {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: none;
+}
+
+.p-tree-filter-icon {
+  display: none !important;
+}

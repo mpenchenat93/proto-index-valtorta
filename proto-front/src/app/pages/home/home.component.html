@@ -1,0 +1,252 @@
+<div appScroll (scrollPosition)="onScroll($event)" *ngIf="width < 800"></div>
+
+<div
+  class="overlay"
+  *ngIf="nbLoadedFiles !== 1000 && !formattedErr.length && !hierarchyError.name"
+>
+  <div
+    style="
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      height: 85vh;
+    "
+  >
+    <img
+      src="assets/ico/ico-512.png"
+      style="border-radius: 15px"
+      class="splash-screen-width"
+      alt="logo"
+    />
+    <app-progress-bar
+      class="splash-screen-width"
+      [progress]="getValue()"
+    ></app-progress-bar>
+  </div>
+</div>
+
+<app-header [hideLinks]="hideLinks"></app-header>
+
+<main>
+  <div *ngIf="!formattedErr.length && !hierarchyError.name">
+    <app-form
+      [isTreePresent]="isTreePresent"
+      [(references)]="references"
+      [keywords]="keywords"
+      [themeTree]="themeTree"
+      [(search)]="search"
+      [(page)]="page"
+      [oeuvreList]="oeuvreList"
+      [isJobDone]="isJobDone"
+      (hierarchyErrorEv)="onHierarchyError($event)"
+    ></app-form>
+
+    <div>
+      <br *ngIf="!b2s9ANs7dvsMLQh || cptRef < idvhlouL5zm9PJ3" />
+
+      <div
+        *ngIf="b2s9ANs7dvsMLQh && cptRef >= idvhlouL5zm9PJ3"
+        class="card card-orange card-limit-version"
+        [innerHTML]="'LIMIT_VERSION' | translate"
+      ></div>
+    </div>
+
+    <div *ngIf="!cptRef" class="card card-sm2">
+      <span *ngIf="nbLoadedFiles === 1000">
+        {{ "NO_RESULTS" | translate }}...
+      </span>
+      <span *ngIf="nbLoadedFiles !== 1000">{{ "ON_LOAD" | translate }}...</span>
+    </div>
+
+    <app-pagination
+      *ngIf="cptRef"
+      [collectionSize]="cptRef"
+      [(page)]="page"
+      [pageSize]="pageSize"
+      [rotate]="true"
+      [ellipses]="false"
+      (pageChange)="onPageChange($event)"
+    >
+    </app-pagination>
+
+    <div *ngIf="cptRef" class="row-top-to-list">
+      <div>
+        <span>{{ "FORM.RESULTS_BY_PAGE" | translate }} :</span>
+        <div class="sm-select-container" style="width: 60px; margin-left: 5px">
+          <select
+            id="results-by-page"
+            style="width: 100%; background-color: transparent"
+            aria-label="Default select example"
+            [ngModel]="pageSize"
+            [ngModelOptions]="{ standalone: true }"
+            (ngModelChange)="onChangePageSize($event)"
+          >
+            <option>10</option>
+            <option>15</option>
+            <option>20</option>
+            <option>40</option>
+          </select>
+        </div>
+      </div>
+      <div></div>
+      <div style="display: flex; align-items: center; flex-wrap: wrap">
+        <div *ngIf="width <= 1000">
+          <a
+            type="button"
+            class="go-to-bottom"
+            rel="nofollow"
+            tabindex="-1"
+            style="
+              cursor: pointer;
+              text-decoration: underline;
+              margin-right: 10px;
+            "
+            (click)="scrollToBottom()"
+          >
+            {{ "GO_BOTTOM" | translate }}
+          </a>
+        </div>
+        <div>
+          <span class="badge" *ngIf="isJobDone">
+            {{ cptRef | formatNumber }} {{ "FORM.RESULTS" | translate }}
+          </span>
+          <span class="badge" *ngIf="!isJobDone">
+            xxx {{ "FORM.RESULTS" | translate }}
+          </span>
+        </div>
+        <a
+          (click)="cptRef <= 500 && exportFile()"
+          [class.disabled]="cptRef > 500"
+          style="float: right"
+          type="button"
+          class="btn"
+          style="margin-left: 5px; padding: 5px 15px; color: white"
+          [title]="'BTN.DISABLED' | translate"
+        >
+          <fontawesome
+            [isHovering]="cptRef > 500"
+            name="download"
+          ></fontawesome>
+          {{ "FORM.EXPORT" | translate }}
+        </a>
+      </div>
+    </div>
+
+    <div
+      *ngIf="cptRef"
+      style="text-align: center; margin-bottom: 15px"
+      class="go-to-bottom2"
+    >
+      <a
+        type="button"
+        rel="nofollow"
+        tabindex="-1"
+        style="cursor: pointer; text-decoration: underline; margin-right: 10px"
+        (click)="scrollToBottom()"
+      >
+        {{ "GO_BOTTOM" | translate }}
+      </a>
+    </div>
+
+    <div #topList></div>
+
+    <reference-list
+      [references]="references"
+      [search]="search"
+    ></reference-list>
+
+    <div #bottomList></div>
+
+    <div *ngIf="cptRef" class="row-bottom-to-list">
+      <div class="A">
+        <app-pagination
+          [collectionSize]="cptRef"
+          [(page)]="page"
+          [pageSize]="pageSize"
+          [rotate]="true"
+          [ellipses]="false"
+          [position]="'bottom'"
+          (pageChange)="onPageChange($event)"
+        >
+        </app-pagination>
+      </div>
+      <div class="B">
+        <div *ngIf="width <= 1000">
+          <a
+            type="button"
+            rel="nofollow"
+            tabindex="-1"
+            style="cursor: pointer; text-decoration: underline"
+            (click)="scrollToTop()"
+          >
+            {{ "GO_TOP" | translate }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="formattedErr.length">
+    <div class="card card-orange">
+      <h2>{{ "STATUS.H2" | translate }}</h2>
+
+      <defensive-code [formattedErr]="formattedErr"></defensive-code>
+
+      <div style="margin-top: 20px" class="msg-def">
+        <p>
+          {{ "STATUS.LI1" | translate }}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!formattedErr.length && hierarchyError.name">
+    <div class="card card-orange">
+      <h2>{{ "STATUS.H2" | translate }}</h2>
+
+      <app-defensive-hierarchy
+        [hierarchyError]="hierarchyError"
+      ></app-defensive-hierarchy>
+
+      <div style="margin-top: 20px" class="msg-def">
+        <p>
+          {{ "STATUS.LI1" | translate }}
+        </p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div
+  *ngIf="width > 1000 && !hierarchyError.name"
+  style="position: fixed; bottom: 20px"
+  [ngStyle]="{ right: goToPosition - 65 + 'px' }"
+>
+  <div style="display: flex; flex-direction: column; gap: 5px">
+    <fontawesome
+      name="go-top"
+      (click)="scrollToTop()"
+      style="cursor: pointer"
+    ></fontawesome>
+    <fontawesome
+      name="go-bottom"
+      (click)="scrollToBottom()"
+      style="cursor: pointer"
+    ></fontawesome>
+  </div>
+</div>
+
+<div
+  *ngIf="width < 800 && mobileGoTopShown && !hierarchyError.name"
+  style="position: fixed; bottom: 20px"
+  [ngStyle]="{ right: getRightPositionForMobile() }"
+>
+  <div style="background-color: #e0e0e0; border-radius: 999px">
+    <fontawesome
+      name="go-top-mobile"
+      (click)="scrollToTop()"
+      style="cursor: pointer"
+    ></fontawesome>
+  </div>
+</div>

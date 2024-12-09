@@ -1,0 +1,47 @@
+<ul class="reference">
+  <li *ngFor="let ref of references; let i = index">
+    <!-- TITLE -->
+    <strong
+      [style.fontSize.px]="fontSize + 2"
+      [style.lineHeight]="lineHeight - 0.1"
+    >
+      {{ getTitle(ref) }}
+      <a *ngIf="ref.url" [href]="ref.url" target="_blank">
+        <fontawesome name="link" style="margin-left: 4px"></fontawesome>
+      </a>
+    </strong>
+
+    <!-- KEYWORDS -->
+    <div>
+      <p [style.fontSize.px]="fontSize">
+        <u>{{ "KEYWORDS" | translate }} :</u>&nbsp;
+        <span
+          class="underline"
+          [innerHTML]="ref.keywords.join(', ') | addBr"
+        ></span>
+      </p>
+    </div>
+
+    <!-- DETAIL + QUOTE -->
+    <div [innerHTML]="getHtmlDetailAndQuote(ref)"></div>
+
+    <div [id]="'reftoscroll' + i"></div>
+
+    <div style="margin-top: 2em" *ngIf="lengthDetailAndQuoteRef(ref) > 1500">
+      <span
+        *ngIf="ref.collapsed"
+        (click)="openNote(ref)"
+        style="cursor: pointer; text-decoration: underline"
+      >
+        {{ "REFERENCES.SEE-MORE" | translate }}
+      </span>
+      <span
+        *ngIf="!ref.collapsed"
+        (click)="closeNote(ref, i)"
+        style="cursor: pointer; text-decoration: underline"
+      >
+        {{ "REFERENCES.SEE-LESS" | translate }}
+      </span>
+    </div>
+  </li>
+</ul>

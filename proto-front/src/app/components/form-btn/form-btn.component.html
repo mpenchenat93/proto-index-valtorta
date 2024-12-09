@@ -1,0 +1,89 @@
+<div style="display: flex; flex-wrap: wrap; gap: 5px; margin-top: 2px">
+  <div style="flex-shrink: 0">
+    <button type="button" class="btn-secondary" (click)="resetAllForm()">
+      {{ "FORM.RESET" | translate }}
+    </button>
+  </div>
+
+  <!-- <button (click)="openDocs()" type="button" class="btn-outline-secondary">
+    {{ "FORM.BTN-NOTICE" | translate }}
+    <fontawesome name="link-btn" style="margin-left: 4px"></fontawesome>
+  </button> -->
+  <div style="flex-shrink: 0; display: flex; gap: 2px">
+    <button
+      class="btn-outline-secondary"
+      (click)="fontSizeLess()"
+      style="
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 5px;
+      "
+    >
+      A -
+    </button>
+    <button
+      class="btn-outline-secondary"
+      (click)="fontSizeMore()"
+      style="
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 5px;
+      "
+    >
+      A +
+    </button>
+  </div>
+  <div style="flex-shrink: 0; display: flex; gap: 2px">
+    <button
+      class="btn-outline-secondary"
+      (click)="lineHeightLess()"
+      style="
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 5px;
+        display: flex;
+        gap: 5px;
+      "
+    >
+      <div>
+        <fontawesome name="text-height"></fontawesome>
+      </div>
+      <div>-</div>
+    </button>
+    <button
+      class="btn-outline-secondary"
+      (click)="lineHeightMore()"
+      style="
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 5px;
+        display: flex;
+        gap: 3px;
+      "
+    >
+      <div>
+        <fontawesome name="text-height"></fontawesome>
+      </div>
+      <div>+</div>
+    </button>
+  </div>
+  <!-- <button
+    (click)="toggleFollowAlert()"
+    type="button"
+    class="btn-outline-warning"
+  >
+    {{ "FORM.BTN-FOLLOW" | translate }}
+  </button>
+  <button
+    (click)="toggleFollowAlert2()"
+    type="button"
+    class="btn-outline-secondary"
+    style="border-color: #d08034"
+  >
+    <fontawesome name="flag"></fontawesome>
+  </button> -->
+</div>

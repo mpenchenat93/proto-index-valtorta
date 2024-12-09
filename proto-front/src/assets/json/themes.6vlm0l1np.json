@@ -1,0 +1,5 @@
+[
+  { "name": "Les Personnages", "id": 1 },
+  { "name": "Evangiles", "id": 2, "parentId": 1 },
+  { "name": "Ancien Testament", "id": 3, "parentId": 1 }
+]

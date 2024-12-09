@@ -1,0 +1,8 @@
+{
+  "/mes_notes/*": {
+    "target": "https://index-maria-valtorta.000webhostapp.com/",
+    "secure": true,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}

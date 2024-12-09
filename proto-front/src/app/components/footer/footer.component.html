@@ -1,0 +1,29 @@
+<div
+  *ngIf="settings['URL-FORM'] && (pathName === '/home' || pathName === '/')"
+  class="card card-sm card-orange"
+  style="
+    margin-bottom: 15px;
+    text-align: left;
+    line-height: 1.2;
+    text-align: center;
+  "
+>
+  <a [href]="settings['URL-FORM']" target="_blank">{{
+    "FOOTER.COMMENT" | translate
+  }}</a>
+  <fontawesome name="link" style="margin-left: 4px"></fontawesome>
+</div>
+
+<app-logos *ngIf="hasValtortaLogo"></app-logos>
+
+<p>
+  <a routerLink="/admin" type="button" (click)="scrollToTop()">{{
+    "FOOTER.ADMIN" | translate
+  }}</a>
+  |
+  <a routerLink="/chart" type="button" (click)="scrollToTop()">{{
+    "FOOTER.CHART" | translate
+  }}</a>
+</p>
+
+<p>© {{ copyrightName }} - {{ "FOOTER.COPYRIGHT" | translate }}, 2024</p>

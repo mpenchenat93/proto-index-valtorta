@@ -1,0 +1,58 @@
+<div *ngIf="formattedErr.length" class="defensive-code">
+  <div class="desktop">
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th>{{ "DEF.FILENAME" | translate }}</th>
+          <th>{{ "DEF.COMMENT" | translate }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let item of formattedErr;
+            let index = index;
+            let isLast = last
+          "
+        >
+          <td>{{ item.file }}</td>
+          <td>
+            <ul>
+              <li *ngFor="let error of item.errors" style="color: #dc3545">
+                <span *ngIf="error.status === 404">
+                  {{ "DEF.MISSING" | translate }}
+                </span>
+                <span *ngIf="error.status === 500">
+                  {{ requiredColumnText(error.requiredProperties) }} :
+                  {{ arrayToString(error.requiredProperties) }}.
+                </span>
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mobile">
+    <div
+      *ngFor="let item of formattedErr; let index = index; let isLast = last"
+    >
+      <p>
+        {{ "DEF.FILE" | translate }} : <b>{{ item.file }}</b>
+      </p>
+      <ul>
+        <li *ngFor="let error of item.errors" style="color: #dc3545">
+          <span *ngIf="error.status === 404">
+            {{ "DEF.MISSING" | translate }}
+          </span>
+          <span *ngIf="error.status === 500">
+            {{ requiredColumnText(error.requiredProperties) }} :
+            {{ arrayToString(error.requiredProperties) }}.
+          </span>
+        </li>
+      </ul>
+      <hr />
+    </div>
+  </div>
+</div>

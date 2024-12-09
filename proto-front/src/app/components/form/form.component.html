@@ -1,0 +1,110 @@
+<div id="formulaire" class="formulaire">
+  <div [ngClass]="hasVolumeSelect() ? 'form-grid-full' : 'form-grid'">
+    <div style="margin-right: 10px" class="oeuvre select-container">
+      <select
+        style="width: 100%"
+        id="selectOeuvre"
+        aria-label="Default select example"
+        [(ngModel)]="oeuvre"
+        (ngModelChange)="onChangeOeuvre()"
+        [ngModelOptions]="{ standalone: true }"
+      >
+        <option *ngFor="let oeuvre of oeuvreList" [ngValue]="oeuvre">
+          {{ oeuvre.fullName }}
+        </option>
+      </select>
+    </div>
+    <div
+      style="margin-right: 10px"
+      class="volume select-container"
+      *ngIf="hasVolumeSelect()"
+    >
+      <select
+        style="width: 100%"
+        class="form-select"
+        id="volume-select"
+        aria-label="Default select example"
+        [(ngModel)]="volume"
+        (ngModelChange)="onChangeVolume()"
+        [ngModelOptions]="{ standalone: true }"
+      >
+        <option *ngFor="let vol of volumeList" [value]="vol.ID">
+          {{ vol.Nom }}
+        </option>
+      </select>
+    </div>
+    <input
+      type="text"
+      name="reference"
+      class="reference"
+      id="exampleInputPassword2"
+      [placeholder]="getReferencePlaceholder()"
+      [ngModel]="reference"
+      (ngModelChange)="onChangeReference($event)"
+      [ngModelOptions]="{ standalone: true }"
+    />
+  </div>
+
+  <app-theme
+    *ngIf="!isMobile && isTreePresent"
+    [themeTree]="themeTree"
+    [resetSearchKeyword]="resetSearchKeyword"
+    (selectedThemeKeywordsEv)="onSelectedThemeKeywords($event)"
+  ></app-theme>
+
+  <app-keyword
+    [keywords]="keywords"
+    [selectedThemeKeywords]="selectedThemeKeywords"
+    [(orMode)]="orMode"
+    [resetSearchKeyword]="resetSearchKeyword"
+    [isJobDone]="isJobDone"
+    (selectedKeywordsEv)="onSelectedKeywords($event)"
+  ></app-keyword>
+
+  <input
+    type="text"
+    name="search"
+    [placeholder]="getSearchPlaceholder()"
+    [(ngModel)]="search"
+    (ngModelChange)="onChangeSearch()"
+    [ngModelOptions]="{ standalone: true }"
+    style="margin-top: 8px"
+  />
+
+  <app-form-btn
+    [resetAllForm]="resetAllForm.bind(this)"
+    [toggleFollowAlert]="toggleFollowAlert.bind(this)"
+    [toggleFollowAlert2]="toggleFollowAlert2.bind(this)"
+  ></app-form-btn>
+</div>
+
+<div
+  id="followText"
+  *ngIf="settings['AFFICHER-TEXTE-SUIVI'] === 'oui' && showFollowAlert"
+  class="card card-sm card-orange"
+  style="text-align: left; line-height: 1.2; text-align: center"
+>
+  <p style="padding: 0 10px" *ngIf="settings['AFFICHER-TEXTE-SUIVI'] === 'oui'">
+    {{ "PROGRESS" | translate }}
+    <span *ngIf="settings['URL-SUIVI']">
+      <a [href]="settings['URL-SUIVI']" target="_blank">{{
+        "FOOTER.FOLLOW-TEXT" | translate
+      }}</a>
+      <fontawesome name="link" style="margin-left: 4px"></fontawesome>
+    </span>
+  </p>
+</div>
+
+<div
+  id="followText2"
+  *ngIf="showFollowAlert2"
+  class="card card-sm card-orange"
+  style="text-align: left; line-height: 1.2; text-align: center"
+>
+  <p style="padding: 0 10px">
+    Une nouvelle version de l'application arrive bientôt avec le support
+    multilingue !
+  </p>
+</div>
+
+<div id="scrollpagtop" style="margin-bottom: 5px"></div>

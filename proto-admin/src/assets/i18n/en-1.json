@@ -1,0 +1,19 @@
+{
+  "HEADER.TITLE": "Notebook",
+  "ADMIN.TITLE": "Site Administration",
+  "ADMIN.CONVERT": "Convert your Excel files",
+  "KEYWORDS": "Keywords",
+  "ADMIN.LABEL-BTN2": "Identify added and removed keywords compared to a previous keyword export, and export these differences.",
+  "ADMIN.OLD-EXPORT": "Old export",
+  "ADMIN.SELECT-FILE": "Select a file",
+  "ADMIN.NOFILE": "No file selected",
+  "ADMIN.NEW-EXPORT": "New export",
+  "FORM.EXPORT": "Export",
+  "ADMIN.LABEL3": "diff_keywords",
+  "ADMIN.LABEL4": "Added keywords",
+  "ADMIN.LABEL5": "Removed keywords",
+  "FOOTER.COPYRIGHT": "All rights reserved",
+  "ADMIN.BTN": "Select your files",
+  "ADMIN.DOWNLOAD": "Download",
+  "ADMIN.FORMAT": "Supported format"
+}

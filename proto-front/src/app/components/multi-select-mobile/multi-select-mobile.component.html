@@ -1,0 +1,70 @@
+<input
+  type="text"
+  placeholder="{{ 'FORM.SEARCHKEYWORD.MOBILE' | translate }}"
+  name="searchKeyword"
+  [(ngModel)]="searchKeyword"
+  (ngModelChange)="divListScrollTop()"
+  [ngModelOptions]="{ standalone: true }"
+/>
+
+<div class="keywords" id="divListe">
+  <ul>
+    <ng-container
+      *ngIf="
+        keywords | keywordFilter : searchKeyword : true as filteredKeywords
+      "
+    >
+      <li
+        class="key-li"
+        *ngFor="let key of filteredKeywords"
+        (click)="selectKeyword(key)"
+        [ngClass]="key.selected ? 'activee' : ''"
+        style="cursor: pointer"
+      >
+        <div style="display: flex; align-items: center">
+          <div>
+            <input
+              type="checkbox"
+              id="keyword{{ key.index }}"
+              name="monCheckbox"
+              [checked]="key.selected"
+              (click)="$event.preventDefault()"
+            />
+          </div>
+          <div class="no-select" style="padding-left: 5px; line-height: 1.2">
+            {{ key.value }}
+          </div>
+        </div>
+      </li>
+      <li *ngIf="filteredKeywords.length === 100" class="key-li">
+        <div
+          style="
+            padding: 10px 15px;
+            border-radius: 5px;
+            background-color: lightgrey;
+            line-height: 1.2;
+          "
+        >
+          {{ "FORM.MOREOPTIONS.MOBILE" | translate }}
+        </div>
+      </li>
+      <div
+        style="display: flex; justify-content: center"
+        *ngIf="filteredKeywords.length === 0"
+      >
+        <div style="padding: 15px">{{ "NO_RESULTS" | translate }}</div>
+      </div>
+    </ng-container>
+  </ul>
+</div>
+<div class="selected-keywords">
+  <div *ngFor="let key of selectedKeywords" style="display: flex; gap: 7px">
+    <div style="display: flex; align-items: center; gap: 8px">
+      <div style="cursor: pointer" (click)="removeKeyword(key)">×</div>
+      <div class="no-select" style="line-height: 1.2">{{ key }}</div>
+    </div>
+  </div>
+  <span *ngIf="!selectedKeywords.length">
+    {{ "FORM.NOKEYWORD.MOBILE" | translate }}
+  </span>
+</div>

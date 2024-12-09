@@ -1,0 +1,66 @@
+<app-header></app-header>
+
+<div class="card card-sm">
+  <div class="breadcrumb">
+    <a routerLink="/home" type="button">{{ "NAV.HOME" | translate }}</a>
+    / {{ "CONTACT" | translate }}
+  </div>
+</div>
+
+<div class="card card-orange">
+  <h2 class="alert-heading">{{ "CONTACT" | translate }}</h2>
+
+  <div *ngIf="!!urlForm" style="margin-bottom: 1.5em">
+    <p>
+      {{ "CONTACT.P1" | translate }}
+      <a [href]="urlForm" target="_blank">
+        {{ "CONTACT.P1-LINK" | translate }}&nbsp;<fontawesome
+          name="link"
+        ></fontawesome></a
+      >{{ "CONTACT.P2" | translate }}
+    </p>
+
+    <p>
+      {{ "CONTACT.P3" | translate }}
+    </p>
+
+    <p>{{ "CONTACT.P4" | translate }}</p>
+  </div>
+
+  <div *ngIf="!urlForm" style="margin-bottom: 1.5em">
+    <p>
+      {{ "CONTACT.P" | translate }}
+    </p>
+  </div>
+
+  <form class="formulaire" action="#">
+    <p *ngIf="!validated" style="margin-bottom: 15px; line-height: 1.3">
+      {{ "CONTACT.SPAM-TEXT" | translate }}
+    </p>
+
+    <div *ngIf="!validated" class="pb" style="padding: 10px">
+      <span style="display: block" class="pb">
+        {{ "CONTACT.Q" | translate }}
+      </span>
+      <input
+        type="text"
+        name="Nom"
+        class="pb"
+        [(ngModel)]="response"
+        [placeholder]="'CONTACT.COLOR' | translate"
+        autocomplete="off"
+      />
+      <div *ngIf="required" class="pb" style="color: red">
+        {{ "CONTACT.FORM.ERR" | translate }}
+      </div>
+      <div *ngIf="wrongResponse" class="pb" style="color: red">
+        {{ "CONTACT.ERROR" | translate }}
+      </div>
+      <button type="submit" (click)="checkResponse()">
+        {{ "CONTACT.SUBMIT" | translate }}
+      </button>
+    </div>
+
+    <div *ngIf="validated" style="text-align: center" [innerHTML]="email"></div>
+  </form>
+</div>

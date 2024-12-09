@@ -1,0 +1,31 @@
+<app-header></app-header>
+
+<div class="card card-sm">
+  <div class="breadcrumb">
+    <a routerLink="/home" type="button">{{ "NAV.HOME" | translate }}</a> /
+    {{ "FOOTER.ADMIN" | translate }}
+  </div>
+</div>
+<div class="card card-orange">
+  <h2>{{ "ADMIN.TITLE" | translate }}</h2>
+
+  <br />
+  <h4 style="padding: 15px">{{ "KEYWORDS" | translate }}</h4>
+  <div style="padding-left: 15px">
+    <div
+      style="
+        display: flex;
+        gap: 10px;
+        align-items: baseline;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+        padding-left: 10px;
+      "
+    >
+      <label for="export">{{ "ADMIN.LABEL-BTN1" | translate }}</label>
+      <button name="export" (click)="exportStringsAsExcel()">
+        {{ "FORM.EXPORT" | translate }}
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,85 @@
+<div style="border: 1px solid #ddd; border-radius: 5px; margin-bottom: 8px">
+  <div style="padding: 10px 10px 5px 10px">
+    <div
+      style="
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+      "
+    >
+      <h6>{{ "THEME.TITLE" | translate }}</h6>
+      <div style="display: flex; gap: 5px">
+        <button
+          *ngIf="hidden"
+          class="btn-outline-secondary"
+          style="padding: 5px 8px 2px; margin-bottom: 5px"
+          (click)="toggle()"
+        >
+          <fontawesome name="add"></fontawesome>
+        </button>
+
+        <button
+          *ngIf="!hidden"
+          class="btn-outline-secondary"
+          style="padding: 5px 8px 2px"
+          (click)="expandAll()"
+        >
+          <fontawesome name="expand"></fontawesome></button
+        ><button
+          *ngIf="!hidden"
+          class="btn-outline-secondary"
+          style="padding: 5px 8px 2px"
+          (click)="collapseAll()"
+        >
+          <fontawesome name="compress"></fontawesome>
+        </button>
+        <button
+          *ngIf="!hidden"
+          class="btn-outline-secondary"
+          style="padding: 5px 8px 2px"
+          (click)="toggle()"
+        >
+          <fontawesome name="minus"></fontawesome>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!hidden" style="padding: 10px">
+    <div class="filter-container">
+      <input
+        name="searchTheme"
+        [(ngModel)]="searchTheme"
+        type="text"
+        (input)="onFilter($event)"
+        placeholder="{{ 'THEME.SEARCH' | translate }}"
+      />
+    </div>
+    <div
+      class="flex flex-column align-items-center justify-content-center"
+      style="
+        padding: 5px;
+        padding-bottom: 20px;
+        height: 200px;
+        overflow-y: scroll;
+        background-color: white;
+      "
+    >
+      <p-tree
+        [value]="filteredNodes"
+        selectionMode="checkbox"
+        class="w-full md:w-30rem"
+        [(selection)]="selectedNodes"
+        (onNodeSelect)="onNodeChange()"
+        (onNodeUnselect)="onNodeChange()"
+      >
+        <ng-template pTemplate="empty" let-nodes>
+          <div
+            style="display: flex; justify-content: center; align-items: center"
+          >
+            <div style="margin-top: 10px">{{ "NO_RESULTS" | translate }}</div>
+          </div>
+        </ng-template>
+      </p-tree>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+.active-letter {
+  background-color: #4a76d7 !important;
+  color: white !important;
+}
+
+.disabled-letter {
+  background-color: lightgray;
+  cursor: not-allowed !important;
+}

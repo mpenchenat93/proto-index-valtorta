@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+
+$title-font-family: 'Roboto',
+'Arial',
+sans-serif;
+$title-base-color: #333;
+$title-base-line-height: 1.2;
+$title-base-weight: bold;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $title-font-family;
+    color: $title-base-color;
+    font-weight: $title-base-weight;
+    line-height: $title-base-line-height;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+h3 {
+    font-size: 1.75em;
+    margin-bottom: 0.5em;
+}
+
+h4 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+h5 {
+    font-size: 1.25em;
+    margin-bottom: 0.5em;
+    padding-top: 20px;
+    padding-left: 30px;
+}
+
+h6 {
+    font-size: 1em;
+    margin-bottom: 0.5em;
+}

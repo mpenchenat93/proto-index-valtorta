@@ -1,0 +1,18 @@
+.keyword-diff {
+  display: flex;
+  gap: 50px
+}
+
+@media only screen and (max-width: 518px) {
+  .keyword-diff {
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+  }
+}
+
+.disabled {
+  cursor: not-allowed;
+  color: #ccc !important;
+  background-color: #4a76d7;
+}

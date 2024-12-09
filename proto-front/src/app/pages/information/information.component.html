@@ -1,0 +1,19 @@
+<app-header></app-header>
+
+<div class="card card-sm">
+  <div class="breadcrumb">
+    <a routerLink="/home" type="button">{{ "NAV.HOME" | translate }}</a>
+    / {{ "HEADER.INFOS" | translate }}
+  </div>
+</div>
+<div class="card card-orange">
+  <h2>{{ "HEADER.INFOS" | translate }}</h2>
+  <ul>
+    <li *ngFor="let o of oeuvres">
+      <b>{{ o.fullName }}</b
+      >, {{ o.author }}, <br /><span style="font-style: italic"
+        >{{ "EDITION" | translate }} {{ o.edition }}</span
+      >
+    </li>
+  </ul>
+</div>

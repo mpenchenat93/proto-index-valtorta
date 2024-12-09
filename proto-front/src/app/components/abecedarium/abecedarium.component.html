@@ -1,0 +1,148 @@
+<input
+  type="text"
+  [placeholder]="'ABECEDARIUM.GSEARCH' | translate"
+  name="globalSearch"
+  [(ngModel)]="globalSearch"
+  (input)="computeDisabled()"
+  [ngModelOptions]="{ standalone: true }"
+/>
+
+<div
+  style="
+    border: solid 1px #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #f5f3f3;
+  "
+>
+  <!-- Alphabet -->
+  <div
+    style="
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      gap: 0;
+    "
+  >
+    <div
+      *ngFor="let letter of alphabet.slice(0, 14); let isFirst = first"
+      (click)="!isLetterDisabled(letter) && selectLetter(letter)"
+      [ngClass]="[
+        letter === currentLetter ? 'active-letter' : '',
+        isLetterDisabled(letter) ? 'disabled-letter' : ''
+      ]"
+      style="
+        border-right: solid 1px #ddd;
+        flex: 1;
+        padding: 5px 0;
+        text-align: center;
+        box-sizing: border-box;
+        cursor: pointer;
+      "
+      [ngStyle]="{
+        'border-left': isFirst ? 'solid 1px #ddd' : ''
+      }"
+    >
+      {{ letter }}
+    </div>
+  </div>
+  <div
+    style="
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      gap: 0;
+      padding-top: 1px;
+    "
+  >
+    <div
+      (click)="!isLetterDisabled(letter) && selectLetter(letter)"
+      [ngClass]="[
+        letter === currentLetter ? 'active-letter' : '',
+        isLetterDisabled(letter) ? 'disabled-letter' : ''
+      ]"
+      *ngFor="
+        let letter of alphabet.slice(14, 27);
+        let isLast = last;
+        let isFirst = first
+      "
+      style="
+        border-right: solid 1px #ddd;
+        padding: 5px 0;
+        text-align: center;
+        box-sizing: border-box;
+        cursor: pointer;
+      "
+      [ngStyle]="{
+        flex: isLast ? '2' : '1',
+        'border-left': isFirst ? 'solid 1px #ddd' : '',
+        'padding-right': isLast ? '1px' : ''
+      }"
+    >
+      {{ letter }}
+    </div>
+  </div>
+
+  <input
+    style="margin-top: 10px"
+    type="text"
+    [placeholder]="'ABECEDARIUM.SSEARCH' | translate"
+    name="letterSearch"
+    [(ngModel)]="letterSearch"
+    [ngModelOptions]="{ standalone: true }"
+  />
+
+  <!-- list -->
+
+  <div class="keywords" id="divListe">
+    <ul>
+      <ng-container
+        *ngIf="
+          getKeyworksListByLetter(currentLetter)
+            | keywordFilter : globalSearch : false
+            | keywordFilter : letterSearch : false as filteredKeywords
+        "
+      >
+        <li
+          class="key-li"
+          *ngFor="let key of filteredKeywords"
+          (click)="selectKeyword(key)"
+          [ngClass]="key.selected ? 'active' : ''"
+          style="cursor: pointer"
+        >
+          <div style="display: flex; align-items: center">
+            <div>
+              <input
+                type="checkbox"
+                id="keyword{{ key.index }}"
+                name="monCheckbox"
+                [checked]="key.selected"
+              />
+            </div>
+            <div class="no-select" style="padding-left: 5px; line-height: 1.2">
+              {{ key.value }}
+            </div>
+          </div>
+        </li>
+        <div
+          style="display: flex; justify-content: center"
+          *ngIf="filteredKeywords.length === 0"
+        >
+          <div style="padding: 15px">{{ "NO_RESULTS" | translate }}</div>
+        </div>
+      </ng-container>
+    </ul>
+  </div>
+</div>
+
+<div class="selected-keywords" style="margin-top: 10px">
+  <div *ngFor="let key of selectedKeywords" style="display: flex; gap: 7px">
+    <div style="display: flex; align-items: center; gap: 8px">
+      <div style="cursor: pointer" (click)="removeKeyword(key)">×</div>
+      <div class="no-select" style="line-height: 1.2">{{ key }}</div>
+    </div>
+  </div>
+  <span *ngIf="!selectedKeywords.length">
+    {{ "FORM.NOKEYWORD.MOBILE" | translate }}
+  </span>
+</div>

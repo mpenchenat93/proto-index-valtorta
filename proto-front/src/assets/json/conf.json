@@ -1,0 +1,103 @@
+[
+  {
+    "NOM": "L'Evangile tel qu'il m'a été révélé",
+    "NOM COMPLET": "L'Evangile tel qu'il m'a été révélé",
+    "AUTEUR": "Maria Valtorta",
+    "ID": "Emv",
+    "EST PARENT": "Oui",
+    "LABEL REFERENCE": "Chapitre",
+    "LABEL REFERENCE ABR": "EMV",
+    "EDITION": "Centro Editoriale Valtortiano, 2ème édition",
+    "TOMES": [
+      { "Nom": "Tome 1", "ID": "Emvtome1.u3r5i1b61.json" },
+      { "Nom": "Tome 2", "ID": "Emvtome2.1tuh7i331.json" },
+      { "Nom": "Tome 3", "ID": "Emvtome3.kvyef94hl.json" },
+      { "Nom": "Tome 4", "ID": "Emvtome4.kim4cg5wh.json" },
+      { "Nom": "Tome 5", "ID": "Emvtome5.92vk6nh5z.json" },
+      { "Nom": "Tome 6", "ID": "Emvtome6.0yvtcvsvx.json" },
+      { "Nom": "Tome 7", "ID": "Emvtome7.wm6mv5alb.json" },
+      { "Nom": "Tome 8", "ID": "Emvtome8.7dg5u1hgi.json" },
+      { "Nom": "Tome 9", "ID": "Emvtome9.ottl0dj59.json" },
+      { "Nom": "Tome 10", "ID": "Emvtome10.d496l789y.json" }
+    ]
+  },
+  {
+    "NOM": "Les Cahiers",
+    "NOM COMPLET": "Les Cahiers",
+    "AUTEUR": "Maria Valtorta",
+    "ID": "Cahiers",
+    "EST PARENT": "Oui",
+    "LABEL REFERENCE": "Date",
+    "LABEL REFERENCE ABR": "le",
+    "EDITION": "Centro Editoriale Valtortiano",
+    "TOMES": [
+      { "Nom": "Les Cahiers de 1943", "ID": "Cahiers1943.a9h6lfmqi.json" },
+      { "Nom": "Les Cahiers de 1944", "ID": "Cahiers1944.vrscxlo8n.json" },
+      { "Nom": "Les Cahiers de 1945-1950", "ID": "Cahiers1945.q05iw8zzz.json" }
+    ]
+  },
+  {
+    "NOM": "Les Carnets",
+    "NOM COMPLET": "Les Carnets",
+    "AUTEUR": "Maria Valtorta",
+    "ID": "Carnets.gw0qxioh4.json",
+    "EST PARENT": "Non",
+    "LABEL REFERENCE": "Date",
+    "LABEL REFERENCE ABR": "le",
+    "EDITION": "Centro Editoriale Valtortiano"
+  },
+  {
+    "NOM": "Le Livre d'Azarias",
+    "NOM COMPLET": "Le Livre d'Azarias",
+    "AUTEUR": "Maria Valtorta",
+    "ID": "Azarias.xwnj042jq.json",
+    "EST PARENT": "Non",
+    "LABEL REFERENCE": "Date",
+    "LABEL REFERENCE ABR": "le",
+    "EDITION": "Centro Editoriale Valtortiano"
+  },
+  {
+    "NOM": "Epitre aux Romains",
+    "NOM COMPLET": "Leçons de l'Epitre de saint Paul aux Romains",
+    "AUTEUR": "Maria Valtorta",
+    "ID": "Epitre-de-saint-paul-aux-romains.a9wb3y2l7.json",
+    "EST PARENT": "Non",
+    "LABEL REFERENCE": "Leçons",
+    "LABEL REFERENCE ABR": "leçon",
+    "EDITION": "Centro Editoriale Valtortiano"
+  },
+  {
+    "NOM": "Autobiographie",
+    "NOM COMPLET": "L'Autobiographie",
+    "AUTEUR": "Maria Valtorta",
+    "ID": "Autobiographie.mq05u17r6.json",
+    "EST PARENT": "Non",
+    "LABEL REFERENCE": "Page",
+    "LABEL REFERENCE ABR": "p.",
+    "EDITION": "Centro Editoriale Valtortiano"
+  },
+  {
+    "NOM": "Correspondance avec le père Migliorini",
+    "NOM COMPLET": "Correspondance avec le père Migliorini",
+    "AUTEUR": "Maria Valtorta",
+    "ID": "Migliorini.gjjd9abmk.json",
+    "EST PARENT": "Non",
+    "LABEL REFERENCE": "Date",
+    "LABEL REFERENCE ABR": "le",
+    "EDITION": "Centro Editoriale Valtortiano"
+  },
+  {
+    "NOM": "Correspondance avec Teresa Maria",
+    "NOM COMPLET": "Lettres à Mère Teresa Maria",
+    "AUTEUR": "Maria Valtorta",
+    "ID": "Teresamaria",
+    "EST PARENT": "Oui",
+    "LABEL REFERENCE": "Date",
+    "LABEL REFERENCE ABR": "le",
+    "EDITION": "Centro Editoriale Valtortiano",
+    "TOMES": [
+      { "Nom": "Tome 1", "ID": "Teresamaria-tome1.jme085bw4.json" },
+      { "Nom": "Tome 2", "ID": "Teresamaria-tome2.bb1wrb01c.json" }
+    ]
+  }
+]

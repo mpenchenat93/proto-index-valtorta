@@ -1,0 +1,71 @@
+{
+  "name": "search-quote-engine-admin",
+  "version": "0.0.0",
+  "main": "main.js",
+  "homepage": "admin",
+  "author": {
+    "name": "Matthieu Penchenat",
+    "email": "matthieu.penchenat@protonmail.com"
+  },
+  "scripts": {
+    "start": "ng build --configuration=production --base-href ./ && electron .",
+    "start2": "electron-forge start",
+    "build": "electron-builder",
+    "electron": "electron .",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^17.0.0",
+    "@angular/common": "^17.0.0",
+    "@angular/compiler": "^17.0.0",
+    "@angular/core": "^17.0.0",
+    "@angular/platform-browser": "^17.0.0",
+    "@angular/platform-browser-dynamic": "^17.0.0",
+    "@angular/router": "^17.0.0",
+    "@electron-forge/plugin-fuses": "^7.3.1",
+    "@ngx-translate/core": "^15.0.0",
+    "@ngx-translate/http-loader": "^8.0.0",
+    "crypto-js": "^4.2.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "rxjs": "~7.8.0",
+    "xlsx": "^0.18.5",
+    "zone.js": "~0.14.2"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^17.0.3",
+    "@angular/cli": "^17.0.3",
+    "@electron-forge/cli": "^7.3.1",
+    "@electron-forge/maker-deb": "^7.3.1",
+    "@electron-forge/maker-rpm": "^7.3.1",
+    "@electron-forge/maker-squirrel": "^7.3.1",
+    "@electron-forge/maker-zip": "^7.3.1",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.3.1",
+    "@types/crypto-js": "^4.2.2",
+    "@types/jasmine": "~5.1.0",
+    "electron": "^29.2.0"
+  },
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.3.",
+  "keywords": [],
+  "license": "ISC",
+  "build": {
+    "appId": "matthieu.penchenat.search-quote-engine",
+    "productName": "SearchQuoteEngine",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "dist/prototype-front-admin/*",
+      "node_modules/*/*",
+      "package.json",
+      "main.js"
+    ],
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "HEADER.TITLE": "Carnet De Notes",
+  "ADMIN.TITLE": "Administration du site",
+  "ADMIN.CONVERT": "Convertissez vos fichiers Excels",
+  "KEYWORDS": "Mots-clés",
+  "ADMIN.LABEL-BTN2": "Identifier les mots-clés ajoutés et supprimés par rapport à un précédent export de mots-clés, et exporter ces différences.",
+  "ADMIN.OLD-EXPORT": "Ancien export",
+  "ADMIN.SELECT-FILE": "Sélectionnez un fichier",
+  "ADMIN.NOFILE": "Aucun fichier choisi",
+  "ADMIN.NEW-EXPORT": "Nouvel export",
+  "FORM.EXPORT": "Exporter",
+  "ADMIN.LABEL3": "diff_mots_cles",
+  "ADMIN.LABEL4": "Mots-clés ajoutés",
+  "ADMIN.LABEL5": "Mots-clés supprimés",
+  "FOOTER.COPYRIGHT": "Tous droits réservés",
+  "ADMIN.BTN": "Sélectionnez vos fichiers",
+  "ADMIN.DOWNLOAD": "Télécharger",
+  "ADMIN.FORMAT": "Format supporté"
+}
